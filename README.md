@@ -82,3 +82,12 @@ PWA가 실행 중인 장치의 일부인 것처럼 느끼게 하는 체크리스
 2. PWA Builder
    - https://www.pwabuilder.com/
    - PWA의 3가지 요건을 만족하는지에 대한 점수를 매기고 Manifest와 Service Worker를 쉽게 작성할 수 있도록 도와줌.
+
+## HTTPS 연결
+
+1. Github Pages
+   - 해당 프로젝트repository > settings > pages에서 None => main(branch)으로 변경 후 Save 클릭하면 URL 생성됨
+2. ngrok
+   - NAT와 방화벽 뒤에 있는 로컬 서버를 보안 터널을 통해 공용 인터넷에 노출시켜주는 도구.
+   - 외부에서 로컬에 접속할 수 있도록 해주는 터널 프로그램.
+   - 보통 로컬 환경에서 SSL을 사용할 때나 localhost를 외부에서 호출할 때 사용함.
