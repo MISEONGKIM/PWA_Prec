@@ -91,3 +91,82 @@ PWA가 실행 중인 장치의 일부인 것처럼 느끼게 하는 체크리스
    - NAT와 방화벽 뒤에 있는 로컬 서버를 보안 터널을 통해 공용 인터넷에 노출시켜주는 도구.
    - 외부에서 로컬에 접속할 수 있도록 해주는 터널 프로그램.
    - 보통 로컬 환경에서 SSL을 사용할 때나 localhost를 외부에서 호출할 때 사용함.
+
+## Manifest에 들어가야할 내용
+
+- Manifest가 100점이 나오지 않으면(pwa builder에서) 최종적으로 PWA를 퍼블리싱 할 수 없다. 특히 아이콘 이미지가 제대로 업로드 되었는 지 확인한 후 진행해야 함.
+
+### Manifest에 들어가야 할 내용
+
+**web.dev에서 소개하는 매니페스트에 포함 되어야 할 내용 리스트**
+
+- short_name 또는 name
+  - name : 앱의 이름
+  - short_name : 홈 스크린의 아이콘 이름과 같이 앱의 이름을 표시할 충분한 공간이 없을 경우 사용자에게 표시되는 이름.
+- icons : 192px과 512px 아이콘
+  - 홈화면에 추가하면 생길때 사용할 아이콘을 설정하는 옵션
+  - 설정한 아이콘 이미지들은 앱 실행, 작업 전환, 스플래시 화면 등의 장소에서 사용하게 됨. 아이콘 사이는 48px 단위로 제공해야 함.
+- start_url
+  - 웹 애플리케이션 시작할 때 로드되어야 할 기본 url
+  * 일반적으로 앱의 root url을 말함. https://miseongkim.github.io/PWA_Prec/와 같은 것
+- display : fullscreen, standalone, minial-ui 중 하나이어야 함.
+  - 개발자가 선호하는 디스플레이 모드 설정
+  * 앱이 사용자에게 어떻게 표시될 지 결정하는 것으로 앱을 표시하는 방식
+  * browser : 일반 브라우저와 동일하게 보임
+  * standalone : 다른 앱들처럼 최상단에 상태표시줄을 제외한 전체화면으로 보임
+  * fullscreen 상태표시줄도 제외한 전체화면(ex. 게임)
+  * minimul-ui : fullscreen 과 비슷하지만 뒤로가기, 새로고침등 최소한의 영역만 제공(모바일 크롬 전용)
+- prefer_related_aplications : 존재하지 않거나 false이어야 함.
+
+**그 외**
+
+- description
+  - 앱이 어떤 작업을 수행하는지에 대한 설명
+- background color와 theme color
+  - background color는 웹이 처음 시작될때 splashScreen 에서 사용하기 위해 사용 됨, theme color는 상단부의 테마 부분의 색상을 지정.
+
+* splashScreen
+
+  - 스플래시 화면을 설정하게 되면 초기 렌더링시 흰화면 대신 스플래시 이미지가 보이면서 사용하는 사용자에게 좀더 친화적인 환경을 제공
+  - 스플래시 이미지는 따로 설정하지 않고 name, background_color, icons 설정이 되어있으면 이를 조합하여 보여주게 됨.
+
+* scope
+  - 애플리케이션 context의 탐색 범위를 정의, 매니페스트가 적용되는 동안 볼 수 있는 웹 페이지를 제한한다.
+  - 만약 사용자가 제한된 범위인 외부를 탐색하면 브라우저 탭 또는 창 내부의 일반 웹 페이지로 되돌아간다.
+* orientation
+  - 웹 페이지의 기본 방향을 정의
+* language
+  - 앱의 기본 언어
+* shortcuts
+
+  - 이 옵션은 사용자가 PWA를 설치한 후 홈 화면에 추가될 때의 동작을 정의
+  - 사용자가 단축을 클릭했을 때 실행되는 URL을 지정하고, 이름과 아이콘도 지정할 수 있음. 이를 통해 사용자는 PWA에 빠르게 접근할 수 있다.
+
+  * 사용자가 이러한 단축을 홈 화면에 추가하면 해당 PWA의 특정 기능에 빠르게 액세스할 수 있음
+
+  ```
+  "shortcuts": [
+  {
+     "name": "카메라",
+     "description": "사진 찍기",
+     "url": "/camera",
+     "icons": [
+        {
+        "src": "/icons/camera-icon.png",
+        "sizes": "192x192"
+        }
+     ]
+  },
+  {
+     "name": "갤러리",
+     "description": "사진 보기",
+     "url": "/gallery",
+     "icons": [
+        {
+        "src": "/icons/gallery-icon.png",
+        "sizes": "192x192"
+        }
+     ]
+  }
+  ]
+  ```

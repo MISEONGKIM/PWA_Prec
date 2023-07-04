@@ -1,0 +1,28 @@
+{
+  "background_color": "#ffffff",
+  "description": "1만 시간의 법칙 웹페이지로 pwa 연습",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "miseongkim.github",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "miseongkim.github",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "categories": ["utilities"],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "images/512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "images/192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    }
+  ]
+}
