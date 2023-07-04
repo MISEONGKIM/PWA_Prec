@@ -3,14 +3,12 @@
   "description": "1만 시간의 법칙 웹페이지로 pwa 연습",
   "dir": "ltr",
   "display": "standalone",
-  "name": "miseongkim.github",
-  "orientation": "any",
+  "name": "1만 시간의 법칙",
+  "orientation": "portrait",
   "scope": "/",
-  "short_name": "miseongkim.github",
-  "start_url": "/",
+  "short_name": "시간의 법칙",
+  "start_url": "https://miseongkim.github.io/PWA_Prec/",
   "theme_color": "#ffffff",
-  "categories": ["utilities"],
-  "screenshots": [],
   "icons": [
     {
       "src": "images/512x512.png",
@@ -24,5 +22,6 @@
       "sizes": "192x192",
       "purpose": "any"
     }
-  ]
+  ],
+  "lang": "ko"
 }
