@@ -139,10 +139,10 @@ PWA가 실행 중인 장치의 일부인 것처럼 느끼게 하는 체크리스
   - 앱의 기본 언어
 * shortcuts
 
-  - 이 옵션은 사용자가 PWA를 설치한 후 홈 화면에 추가될 때의 동작을 정의
-  - 사용자가 단축을 클릭했을 때 실행되는 URL을 지정하고, 이름과 아이콘도 지정할 수 있음. 이를 통해 사용자는 PWA에 빠르게 접근할 수 있다.
+  - 사용자가 PWA를 설치한 후 홈 화면에 추가할 수 있는 단축 아이콘을 정의할 수 있다. 이를 통해 사용자는 PWA에 더 쉽게 액세스할 수 있게 됨.
+  - shortcuts 속성은 배열 형태로 여러 개의 단축 아이콘을 정의할 수 있음.
 
-  * 사용자가 이러한 단축을 홈 화면에 추가하면 해당 PWA의 특정 기능에 빠르게 액세스할 수 있음
+  * 사용자가 이러한 단축 아이콘을 홈 화면에 추가하면 해당 PWA의 특정 기능에 빠르게 액세스할 수 있음
 
   ```
   "shortcuts": [
@@ -170,3 +170,24 @@ PWA가 실행 중인 장치의 일부인 것처럼 느끼게 하는 체크리스
   }
   ]
   ```
+
+### Manifest 등록
+
+```
+  <link rel="manifest" href="manifest.json" />
+```
+
+## Service Worker 설정하기
+
+- Service Worker Options로 이동하면 오프라인 환경에 대한 설정을 할 수 있음.
+- PWA Builder에서는 미리 만들어진 서비스 워커 패키지들을 제공함.
+
+### Servie Worker 등록
+
+```
+  <script type="module">
+        import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+        const el = document.createElement('pwa-update');
+        document.body.appendChild(el);
+     </script>
+```
